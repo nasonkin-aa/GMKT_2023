@@ -7,8 +7,7 @@ public class EnemyControl : MonoBehaviour
     
     public EnemyControl(Transform transform , float speed)
     {
-        _speed = speed;
-        _transform = transform;
+
     }
     
 }
