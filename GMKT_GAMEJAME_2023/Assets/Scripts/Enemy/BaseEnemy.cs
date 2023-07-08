@@ -1,13 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using EnemyType;
+using EffectType;
 
 public class BaseEnemy : Entity
 {
     private Character _character = Character.Instance;
     GameObject _bulletPrefab;
-    public EnemyTypes _type;
+    public EffectTypes _type;
     public float cooldown = 2;
     private float cooldownTime;
 
@@ -22,7 +22,6 @@ public class BaseEnemy : Entity
         _character = Character.Instance;
     }
 
-    // Update is called once per frame
     void Update()
     {
         RotateToCharacter();
@@ -61,16 +60,5 @@ public class BaseEnemy : Entity
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-    }
-
-
-}
-
-namespace EnemyType
-{
-    public enum EnemyTypes
-    {
-        Fire,
-        Water
     }
 }
