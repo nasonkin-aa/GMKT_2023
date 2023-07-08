@@ -40,15 +40,13 @@ public class BaseEnemy : Entity
 
         if (!_bulletPrefab)
             return;
-
         GameObject spawnedObject = Instantiate(_bulletPrefab, transform.position, Quaternion.identity);
-
+        spawnedObject.layer = LayerMask.NameToLayer("EnemyBullet");
         float angleRadians = transform.rotation.eulerAngles.z * Mathf.Deg2Rad;
         float x = Mathf.Cos(angleRadians);
         float y = Mathf.Sin(angleRadians);
-
+        spawnedObject.GetComponent<Bullet>().type = _type;
         spawnedObject.GetComponent<Rigidbody2D>().velocity = new Vector2(x, y).normalized * 5;
-        
     }
 
     private void RotateToCharacter()
@@ -58,7 +56,18 @@ public class BaseEnemy : Entity
 
         Vector2 direction = _character.transform.position - transform.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-
+        
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+    }
+   
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.GetComponent<BulletCharacter>() 
+            && TypeMatching.IsKilled(other.gameObject.GetComponent<BulletCharacter>().type,
+                _type))
+        {
+            Destroy(gameObject);
+        }
+      
     }
 }
