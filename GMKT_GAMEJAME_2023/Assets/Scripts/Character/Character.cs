@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class Character : Entity
 {
-    private CharacterControl _characterControl;
+    public static Character Instance { get; private set; }
+    public  CharacterControl _characterControl;
+
+    public void Awake()
+    {
+        Instance = this;
+    }
     void Start()
     {
         _characterControl = new CharacterControl(transform, _speed);
