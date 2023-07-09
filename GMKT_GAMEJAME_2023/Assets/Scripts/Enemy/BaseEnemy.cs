@@ -122,7 +122,6 @@ public class BaseEnemy : Entity
 
         Vector2 direction = _character.transform.position - transform.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        Debug.Log(Math.Abs(angle));
         
         gameObject.GetComponent<SpriteRenderer>().flipY = Math.Abs(angle) > 90;
         
@@ -142,8 +141,6 @@ public class BaseEnemy : Entity
         AggressionZone aggressiveZone = GetComponentInChildren<AggressionZone>();
         if (aggressiveZone == null)
             return;
-
-        Debug.Log("0000");
         aggressiveZone.OnPlayerEnter.AddListener(OnPlayerEnterAggressionZone);
         aggressiveZone.OnPlayerExit.AddListener(OnPlayerExitAggressionZone);
     }

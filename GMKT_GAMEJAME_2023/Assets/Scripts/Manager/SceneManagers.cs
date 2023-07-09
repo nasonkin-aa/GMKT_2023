@@ -11,6 +11,12 @@ public static class SceneManagers
 
     public static void SceneNext()
     {
-        SceneManager.LoadScene(SceneManager.loadedSceneCount + 1);
+        SceneManager.LoadScene(SceneManager.sceneCount + 1);
+    }
+    
+    public static void Restart()
+    {
+        Debug.Log(SceneManager.sceneCount);
+        SceneManager.LoadScene(SceneManager.sceneCount);
     }
 }

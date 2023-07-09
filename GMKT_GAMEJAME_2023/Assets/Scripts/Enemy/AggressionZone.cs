@@ -8,7 +8,6 @@ public class AggressionZone : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Enter");
         if (collision.gameObject.GetComponent<Character>() == null)
             return;
 
