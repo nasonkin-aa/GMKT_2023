@@ -6,6 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Level 1.unity
+    guid: 081aeae761b3b60469141e67994d9eae
+  - enabled: 1
     path: Assets/Scenes/Andrey.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Anton.unity
+    guid: ab2ff61c5ba16424a8530f2a9549f229
+  - enabled: 1
+    path: Assets/Scenes/Kostya traxer.unity
+    guid: fc606dc546318814d95c0d43935c0514
   m_configObjects: {}
