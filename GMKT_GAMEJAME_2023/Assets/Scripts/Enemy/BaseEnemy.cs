@@ -1,6 +1,7 @@
 using UnityEngine;
 using EffectType;
 using System;
+using System.Collections.Generic;
 using ShootType;
 using UnityEngine.Events;
 
@@ -21,12 +22,30 @@ public class BaseEnemy : Entity
     private Shoot _shooter;
     private bool _isAttackPosible = false;
 
+    public List<Sprite> spriteMagic;
+
     private void Awake()
     {
         string prefabName = _type.ToString() + "Bullet";
 
         if (_type == EffectTypes.None)
             prefabName = "Bullet";
+        
+        switch (_type)
+        {
+            case EffectTypes.Fire:
+                gameObject.GetComponent<SpriteRenderer>().sprite = spriteMagic[0];
+                break;
+            case EffectTypes.Water:
+                gameObject.GetComponent<SpriteRenderer>().sprite = spriteMagic[1];
+                break;
+            case EffectTypes.Ice:
+                gameObject.GetComponent<SpriteRenderer>().sprite = spriteMagic[2];
+                break;
+            case EffectTypes.Rock:
+                gameObject.GetComponent<SpriteRenderer>().sprite = spriteMagic[3];
+                break;
+        }
 
         _bulletPrefab = Resources.Load<GameObject>(prefabName);
 
@@ -69,7 +88,6 @@ public class BaseEnemy : Entity
             Shoot();
         }
         Move();
-        Debug.Log(_isAttackPosible);
     }
 
     protected virtual void Move()
@@ -104,8 +122,12 @@ public class BaseEnemy : Entity
 
         Vector2 direction = _character.transform.position - transform.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        Debug.Log(Math.Abs(angle));
+        
+        gameObject.GetComponent<SpriteRenderer>().flipY = Math.Abs(angle) > 90;
         
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        
     }
 
     private void TakeBulletSpawnPoint()
