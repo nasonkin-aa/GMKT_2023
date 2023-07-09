@@ -5,6 +5,7 @@ namespace EffectType
         None,
         Rock,
         Fire,
-        Water
+        Water,
+        Ice
     }
 }

@@ -28,6 +28,10 @@ public class Shoot
             spawnedObject.GetComponent<Rigidbody2D>().velocity = direction * _speed;
             spawnedObject.layer = layer;
             spawnedObject.GetComponent<Bullet>().type = type;
+
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            spawnedObject.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+             
         }
             
     }

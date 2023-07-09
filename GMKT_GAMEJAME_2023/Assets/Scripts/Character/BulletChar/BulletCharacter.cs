@@ -6,8 +6,17 @@ public class BulletCharacter : Bullet
     {
         Bullet enemyProjectile = other.gameObject.GetComponent<Bullet>();
         if (enemyProjectile == null)
+        {
+            DefaultTile tile = other.gameObject.GetComponent<DefaultTile>();
+            if (tile == null)
+                return;
+
+            tile.GetEffect(gameObject);
             return;
         SoundManager.PlaySound(SoundManager.Sound.BulletTouch);
+        }
+
+
         enemyProjectile.GetEffect(gameObject);
     }
 }
