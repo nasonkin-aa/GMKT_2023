@@ -3,15 +3,9 @@ using EffectType;
 
 public class WaterTile : DefaultTile
 {
-    
+    [SerializeField]
     public Sprite newSprite; 
-
-    private SpriteRenderer spriteRenderer;
-
-    private void Start()
-    {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-    }
+    
     public override void GetEffect(GameObject playerProjectile)
     {
         BulletCharacter bulletCharacter = playerProjectile.GetComponent<BulletCharacter>();
@@ -20,7 +14,7 @@ public class WaterTile : DefaultTile
 
         if (EffectTypes.Ice == bulletCharacter.type)
         {
-            spriteRenderer.sprite = newSprite;
+            GetComponent<SpriteRenderer>().sprite = newSprite;
             _type = EffectTypes.Ice;
             GetComponent<BoxCollider2D>().enabled = false;
             Destroy(playerProjectile);
