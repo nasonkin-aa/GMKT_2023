@@ -18,6 +18,11 @@ public class BulletCharacter : Bullet
                 Destroy(other.gameObject);
             }
         }
+        else
+        {
+            Destroy(gameObject);
+        }
+        
     }
  
 }
