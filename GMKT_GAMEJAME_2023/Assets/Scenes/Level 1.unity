@@ -148,6 +148,10 @@ PrefabInstance:
       value: -0.76
       objectReference: {fileID: 0}
     - target: {fileID: 483650810032717105, guid: b70307166d1e49a4d941a86f06255335, type: 3}
+      propertyPath: m_CallbackLayers.m_Bits
+      value: 1207
+      objectReference: {fileID: 0}
+    - target: {fileID: 483650810032717105, guid: b70307166d1e49a4d941a86f06255335, type: 3}
       propertyPath: m_ContactCaptureLayers.m_Bits
       value: 4294967295
       objectReference: {fileID: 0}
