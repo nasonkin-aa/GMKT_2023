@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 3640785502556385607}
   - component: {fileID: 5927143097209491941}
   - component: {fileID: 2850474905993339473}
-  - component: {fileID: 6702523015086454946}
   - component: {fileID: -6860571782483893822}
+  - component: {fileID: -5864091348670787876}
   m_Layer: 6
   m_Name: BulletChar
   m_TagString: Untagged
@@ -29,11 +29,11 @@ Transform:
   m_GameObject: {fileID: 379320269282404950}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.1221, y: -1.5579, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5441, y: 0.5441, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5927143097209491941
 SpriteRenderer:
@@ -81,7 +81,7 @@ SpriteRenderer:
   m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 9, y: 9}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -114,8 +114,36 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &6702523015086454946
-CircleCollider2D:
+--- !u!114 &-6860571782483893822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 379320269282404950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a7bc2d5c1cab874ab921aebe89e8060, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  type: 0
+  BulletMaterial:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 525ccb318caa0fc429b34167563efd63, type: 2}
+  - {fileID: 2100000, guid: 6d896c9871f4c50428cc9d92cff1017d, type: 2}
+  - {fileID: 2100000, guid: b7f9103c344694b419fe77acda582e65, type: 2}
+  - {fileID: 2100000, guid: 7368839b0059b83448c4117dbeb7a1ec, type: 2}
+  BulletSpriteRenderers:
+  - {fileID: 21300000, guid: 3a3808677aacbc446a24b488b894ee07, type: 3}
+  - {fileID: 416048797, guid: c832e5bcbfbb8a14999eda5b359674a8, type: 3}
+  - {fileID: -1059462791, guid: c832e5bcbfbb8a14999eda5b359674a8, type: 3}
+  - {fileID: 1985216993, guid: c832e5bcbfbb8a14999eda5b359674a8, type: 3}
+  - {fileID: 1243586472, guid: c832e5bcbfbb8a14999eda5b359674a8, type: 3}
+--- !u!61 &-5864091348670787876
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -147,31 +175,15 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.27, y: 0.84}
+    newSize: {x: 9, y: 9}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 0.49999997
---- !u!114 &-6860571782483893822
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 379320269282404950}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a7bc2d5c1cab874ab921aebe89e8060, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  type: 0
-  BulletMaterial:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  - {fileID: 2100000, guid: 525ccb318caa0fc429b34167563efd63, type: 2}
-  - {fileID: 2100000, guid: 6d896c9871f4c50428cc9d92cff1017d, type: 2}
-  - {fileID: 2100000, guid: b7f9103c344694b419fe77acda582e65, type: 2}
-  BulletSpriteRenderers:
-  - {fileID: 21300000, guid: 3a3808677aacbc446a24b488b894ee07, type: 3}
-  - {fileID: 416048797, guid: c832e5bcbfbb8a14999eda5b359674a8, type: 3}
-  - {fileID: -1059462791, guid: c832e5bcbfbb8a14999eda5b359674a8, type: 3}
-  - {fileID: 1985216993, guid: c832e5bcbfbb8a14999eda5b359674a8, type: 3}
+  m_Size: {x: 1.27, y: 0.84}
+  m_EdgeRadius: 0

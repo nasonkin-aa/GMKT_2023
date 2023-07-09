@@ -25,11 +25,13 @@ public class Character : Entity
         FlipCharacter();
     }
 
+    [Obsolete("Obsolete")]
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.GetComponent<Bullet>())
         {
             var particle = gameObject.GetComponent<ParticleSystem>();
+            particle.startColor = other.gameObject.GetComponent<Renderer>().material.color;
             particle.Play();
             CameraShake.Instance.Shake();
             Debug.Log("GetDamage");

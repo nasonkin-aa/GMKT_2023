@@ -48,7 +48,9 @@ public class Bullet : MonoBehaviour
                 _renderer.material.color = Color.blue;
                 break;
             case EffectTypes.Ice:
-                //_renderer.material = BulletMaterial[4];
+                _renderer.material = BulletMaterial[4];
+                gameObject.GetComponent<SpriteRenderer>().sprite = BulletSpriteRenderers[4];
+                curSprite = BulletSpriteRenderers[4];
                 _renderer.material.color = Color.cyan;
                 break;
             default:
