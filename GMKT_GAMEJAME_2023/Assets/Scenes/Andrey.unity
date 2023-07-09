@@ -445,6 +445,9 @@ MonoBehaviour:
   numberOfShots: 0
   bulletSpeed: 5
   bulletSpawnPoint: {fileID: 0}
+  OnDie:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!212 &1588808815
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -600,6 +603,9 @@ MonoBehaviour:
   numberOfShots: 0
   bulletSpeed: 5
   bulletSpawnPoint: {fileID: 0}
+  OnDie:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!212 &1641795424
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -754,6 +760,9 @@ MonoBehaviour:
   numberOfShots: 0
   bulletSpeed: 5
   bulletSpawnPoint: {fileID: 0}
+  OnDie:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!212 &1874418914
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -932,61 +941,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7917216234280248397, guid: e263809e58f6aaa47a4515313c8d7a9e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2033196463}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e263809e58f6aaa47a4515313c8d7a9e, type: 3}
---- !u!1 &2033196459 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7917216234280248397, guid: e263809e58f6aaa47a4515313c8d7a9e, type: 3}
-  m_PrefabInstance: {fileID: 1984929333}
-  m_PrefabAsset: {fileID: 0}
---- !u!61 &2033196463
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2033196459}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.21133333}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.28866667}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!1001 &4298153329803300621
 PrefabInstance:
   m_ObjectHideFlags: 0

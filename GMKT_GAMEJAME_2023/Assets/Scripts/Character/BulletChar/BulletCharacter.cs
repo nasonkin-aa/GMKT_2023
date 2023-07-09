@@ -10,10 +10,10 @@ public class BulletCharacter : Bullet
             DefaultTile tile = other.gameObject.GetComponent<DefaultTile>();
             if (tile == null)
                 return;
+            SoundManager.PlaySound(SoundManager.Sound.BulletTouch);
 
             tile.GetEffect(gameObject);
             return;
-        SoundManager.PlaySound(SoundManager.Sound.BulletTouch);
         }
 
 

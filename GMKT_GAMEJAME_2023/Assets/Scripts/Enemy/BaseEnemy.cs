@@ -139,6 +139,7 @@ public class BaseEnemy : Entity
 
     protected virtual void Die()
     {
+        SoundManager.PlaySound(SoundManager.Sound.EnemyDestroy);
         OnDie.Invoke();
         Destroy(gameObject);
     }
