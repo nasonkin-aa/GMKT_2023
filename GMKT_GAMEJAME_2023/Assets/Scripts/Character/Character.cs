@@ -33,7 +33,6 @@ public class Character : Entity
             particle.Play();
             CameraShake.Instance.Shake();
             Debug.Log("GetDamage");
-            Destroy(other.gameObject);
         }
     }
     public void FlipCharacter()
