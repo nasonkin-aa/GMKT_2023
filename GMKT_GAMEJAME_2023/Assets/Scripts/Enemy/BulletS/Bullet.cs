@@ -17,7 +17,7 @@ public class Bullet : MonoBehaviour
         _renderer = GetComponent<Renderer>();
 
         _rigidbody = GetComponent<Rigidbody2D>();
-        Destroy(gameObject, 1f);
+        Destroy(gameObject, 5f);
         switch (type)
         {
             case EffectTypes.None:
