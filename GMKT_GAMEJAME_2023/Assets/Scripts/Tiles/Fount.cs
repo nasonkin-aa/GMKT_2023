@@ -11,7 +11,7 @@ public class Fount : DefaultTile
 
         if (EffectTypes.None == bulletCharacter.type)
         {
-            _type = EffectTypes.Water;
+            bulletCharacter.type = EffectTypes.Water;
             playerProjectile.GetComponent<Renderer>().material.color = Color.blue;
         }
     }

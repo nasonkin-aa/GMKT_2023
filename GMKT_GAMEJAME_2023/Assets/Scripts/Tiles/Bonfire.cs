@@ -11,7 +11,7 @@ public class Bonefire : DefaultTile
 
         if (EffectTypes.None == bulletCharacter.type)
         {
-            _type = EffectTypes.Fire;
+            bulletCharacter.type = EffectTypes.Fire;
             playerProjectile.GetComponent<Renderer>().material.color = Color.red;
         }
     }
