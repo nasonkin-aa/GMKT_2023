@@ -30,13 +30,14 @@ public class CharacterGun : MonoBehaviour
             Shoot();
         }
         Vector3 mousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-        mousePosition.z = transform.position.z; 
+        mousePosition.z = transform.position.z;
 
-         direction = mousePosition - transform.position;
+        direction = mousePosition - transform.position;
 
-        Quaternion rotation = Quaternion.LookRotation(Vector3.forward, direction);
+        Quaternion rotation = Quaternion.FromToRotation(Vector3.right, direction);
 
         transform.rotation = rotation;
+
     }
     void Shoot()
     {

@@ -20,5 +20,7 @@ public class CharacterControl
         
         Vector3 movement = new Vector3(horizontal, vertical, 0f).normalized * _speed * Time.deltaTime;
         _transform.Translate(movement);
+        
+        
     }
 }
