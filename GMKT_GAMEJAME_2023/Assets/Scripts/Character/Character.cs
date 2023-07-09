@@ -29,7 +29,11 @@ public class Character : Entity
     {
         if (other.gameObject.GetComponent<Bullet>())
         {
+            var particle = gameObject.GetComponent<ParticleSystem>();
+            particle.Play();
+            CameraShake.Instance.Shake();
             Debug.Log("GetDamage");
+            Destroy(other.gameObject);
         }
     }
     public void FlipCharacter()
