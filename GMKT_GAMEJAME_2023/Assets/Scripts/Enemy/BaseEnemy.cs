@@ -2,6 +2,7 @@ using UnityEngine;
 using EffectType;
 using System;
 using ShootType;
+using UnityEngine.Events;
 
 public class BaseEnemy : Entity
 {    
@@ -12,7 +13,7 @@ public class BaseEnemy : Entity
     public int numberOfShots;
     public int bulletSpeed = 5;
     public GameObject bulletSpawnPoint;
-
+    public UnityEvent OnDie;
 
     private Character _character = Character.Instance;
     private GameObject _bulletPrefab;
@@ -72,7 +73,7 @@ public class BaseEnemy : Entity
 
     private void Shoot()
     {
-        if (cooldownTime > 0) // ����������
+        if (cooldownTime > 0)
         {
             cooldownTime -= Time.deltaTime;
             return;
@@ -114,8 +115,14 @@ public class BaseEnemy : Entity
             && TypeMatching.IsKilled(other.gameObject.GetComponent<BulletCharacter>().type,
                 _type))
         {
-            Destroy(gameObject);
+            Die();
         }
       
+    }
+
+    protected virtual void Die()
+    {
+        OnDie.Invoke();
+        Destroy(gameObject);
     }
 }
