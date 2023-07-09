@@ -13,6 +13,8 @@ public class Bonefire : DefaultTile
         {
             bulletCharacter.type = EffectTypes.Fire;
             playerProjectile.GetComponent<Renderer>().material.color = Color.red;
+            playerProjectile.GetComponent<Renderer>().material = playerProjectile.GetComponent<Bullet>().BulletMaterial[2];
+            playerProjectile.GetComponent<SpriteRenderer>().sprite = playerProjectile.GetComponent<Bullet>().BulletSpriteRenderers[2];
         }
     }
 }

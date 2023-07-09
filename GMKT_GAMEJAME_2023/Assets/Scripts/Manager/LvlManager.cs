@@ -25,6 +25,11 @@ public class LvlManager : MonoBehaviour
             _leaveZone.OnPlayerEnter.AddListener(OnPlayerEnterLeaveZone);
             _leaveZone.OnPlayerExit.AddListener(OnPlayerCameOutLeaveZone);
         }
+
+        if (_enemyCount == 0)
+        {
+            _isAccessPermitted = true;
+        }
     }
 
     private void OnEnemyDie()

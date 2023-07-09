@@ -8,8 +8,8 @@ public class Bullet : MonoBehaviour
     public EffectTypes type ;
     private float _speed = 20f;
     private Rigidbody2D _rigidbody;
-    protected Renderer _renderer;
-    private Sprite curSprite;
+    public Renderer _renderer;
+    public Sprite curSprite;
 
     public List<Material> BulletMaterial;
     

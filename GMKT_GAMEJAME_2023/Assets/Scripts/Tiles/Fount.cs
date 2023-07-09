@@ -13,6 +13,8 @@ public class Fount : DefaultTile
         {
             bulletCharacter.type = EffectTypes.Water;
             playerProjectile.GetComponent<Renderer>().material.color = Color.blue;
+            playerProjectile.GetComponent<Renderer>().material = playerProjectile.GetComponent<Bullet>().BulletMaterial[3];
+            playerProjectile.GetComponent<SpriteRenderer>().sprite = playerProjectile.GetComponent<Bullet>().BulletSpriteRenderers[3];
         }
     }
 }
