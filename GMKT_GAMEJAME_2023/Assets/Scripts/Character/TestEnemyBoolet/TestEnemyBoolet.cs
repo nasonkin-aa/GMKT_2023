@@ -14,7 +14,7 @@ public class TestEnemyBoolet : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.GetComponent<BulletCharacter>())
+        if (other.gameObject.GetComponent<Bullet>())
         {
             _rigidbody.velocity = other.transform.GetComponent<Rigidbody2D>().velocity.normalized * _speed;
         }
