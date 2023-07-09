@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using EffectType;
 using System;
@@ -23,7 +21,16 @@ public class BaseEnemy : Entity
 
     private void Awake()
     {
-        _bulletPrefab = Resources.Load<GameObject>("Bullet");
+        string prefabName = _type.ToString() + "Bullet";
+
+        if (_type == EffectTypes.None)
+            prefabName = "Bullet";
+
+        _bulletPrefab = Resources.Load<GameObject>(prefabName);
+
+        if (_bulletPrefab == null)
+            _bulletPrefab = Resources.Load<GameObject>("Bullet");
+
         _bulletPrefab.GetComponent<Bullet>().type = _type;
 
         Type classType = Type.GetType(shootType.ToString());
