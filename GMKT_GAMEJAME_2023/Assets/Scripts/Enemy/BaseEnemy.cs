@@ -19,6 +19,7 @@ public class BaseEnemy : Entity
     private GameObject _bulletPrefab;
     private float cooldownTime;
     private Shoot _shooter;
+    private bool _isAttackPosible = false;
 
     private void Awake()
     {
@@ -52,6 +53,7 @@ public class BaseEnemy : Entity
         }
 
         TakeBulletSpawnPoint();
+        AddListenersForAggressiveZone();
     }
     protected virtual void Start()
     {
@@ -61,9 +63,13 @@ public class BaseEnemy : Entity
 
     void Update()
     {
-        Rotate();
-        Shoot();
+        if (_isAttackPosible)
+        {
+            Rotate();
+            Shoot();
+        }
         Move();
+        Debug.Log(_isAttackPosible);
     }
 
     protected virtual void Move()
@@ -108,7 +114,18 @@ public class BaseEnemy : Entity
         if (spawnPoint)
             bulletSpawnPoint = spawnPoint.gameObject;
     }
-   
+
+    private void AddListenersForAggressiveZone()
+    {
+        AggressionZone aggressiveZone = GetComponentInChildren<AggressionZone>();
+        if (aggressiveZone == null)
+            return;
+
+        Debug.Log("0000");
+        aggressiveZone.OnPlayerEnter.AddListener(OnPlayerEnterAggressionZone);
+        aggressiveZone.OnPlayerExit.AddListener(OnPlayerExitAggressionZone);
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.GetComponent<BulletCharacter>() 
@@ -116,13 +133,23 @@ public class BaseEnemy : Entity
                 _type))
         {
             Die();
-        }
-      
+        }      
     }
 
     protected virtual void Die()
     {
         OnDie.Invoke();
         Destroy(gameObject);
+    }
+
+    protected virtual void OnPlayerEnterAggressionZone()
+    {
+        _isAttackPosible = true;
+    }
+
+    protected virtual void OnPlayerExitAggressionZone()
+    {
+        Debug.Log("Exit");
+        _isAttackPosible = false;
     }
 }
