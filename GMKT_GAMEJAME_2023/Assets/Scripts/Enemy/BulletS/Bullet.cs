@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using EffectType;
 
@@ -8,6 +9,9 @@ public class Bullet : MonoBehaviour
     private float _speed = 20f;
     private Rigidbody2D _rigidbody;
     protected Renderer _renderer;
+
+    public List<Material> BulletMaterial;
+    
     private void Start()
     {
         _renderer = GetComponent<Renderer>();
@@ -17,15 +21,19 @@ public class Bullet : MonoBehaviour
         switch (type)
         {
             case EffectTypes.None:
+                _renderer.material = BulletMaterial[0];
                 _renderer.material.color = Color.white;
                 break;
             case EffectTypes.Rock:
+                _renderer.material = BulletMaterial[1];
                 _renderer.material.color = Color.gray;
                 break;
             case EffectTypes.Fire:
+                _renderer.material = BulletMaterial[2];
                 _renderer.material.color = Color.red;
                 break;
             case EffectTypes.Water:
+                _renderer.material = BulletMaterial[3];
                 _renderer.material.color = Color.blue;
                 break;
             default:
@@ -43,8 +51,8 @@ public class Bullet : MonoBehaviour
         {
             bulletCharacter.type = type;
 
-            playerProjectile.GetComponent<Renderer>().material.color = _renderer.material.color;
-            playerProjectile.GetComponent<ColorLight>().ChangeColor();
+            playerProjectile.GetComponent<Renderer>().material = _renderer.material;
+            
         }
     } 
 }
