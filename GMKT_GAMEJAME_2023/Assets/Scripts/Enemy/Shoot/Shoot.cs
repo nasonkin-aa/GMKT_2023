@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using EffectType;
 using UnityEngine;
 
 public class Shoot
@@ -14,7 +15,8 @@ public class Shoot
         _speed = speed;
     }
 
-    public virtual void Fire(Vector2 spawnPoint, Vector2 direction)
+    public virtual void Fire(Vector2 spawnPoint, Vector2 direction,
+        LayerMask layer, EffectTypes type = EffectTypes.None)
     {
         if (!_projectile)
             return;
@@ -22,7 +24,12 @@ public class Shoot
         GameObject spawnedObject = BulletSpawner.BulletCreate(_projectile, spawnPoint, Quaternion.identity);
 
         if (spawnedObject.GetComponent<Rigidbody2D>())
+        {
             spawnedObject.GetComponent<Rigidbody2D>().velocity = direction * _speed;
+            spawnedObject.layer = layer;
+            spawnedObject.GetComponent<Bullet>().type = type;
+        }
+            
     }
 }
 

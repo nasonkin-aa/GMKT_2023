@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using EffectType;
 
 public class ShotgunShoot : Shoot
 {
@@ -19,16 +20,16 @@ public class ShotgunShoot : Shoot
         _numberOfShots = 5;
     }
 
-    public override void Fire(Vector2 spawnPoint, Vector2 direction)
+    public override void Fire(Vector2 spawnPoint, Vector2 direction,LayerMask layer, EffectTypes type = EffectTypes.None)
     {
-        base.Fire(spawnPoint, direction);
+        base.Fire(spawnPoint, direction,layer, type);
         for (int i = 1; i <= ((_numberOfShots - 1) / 2); i++)
         {
             Vector2 newDerection = CreateNewDerection(direction, i * _angleBetweenShots);
-            base.Fire(spawnPoint, newDerection);
+            base.Fire(spawnPoint, newDerection,layer,type);
 
             newDerection = CreateNewDerection(direction, -i * _angleBetweenShots);
-            base.Fire(spawnPoint, newDerection);
+            base.Fire(spawnPoint, newDerection,layer, type);
         }
     }
 
