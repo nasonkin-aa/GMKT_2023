@@ -27,6 +27,11 @@ public class Character : Entity
     {
         _characterControl.Move();
         FlipCharacter();
+
+        if (Input.GetKey(KeyCode.R))
+        {
+            SceneManagers.Restart();
+        }
     }
 
     [Obsolete("Obsolete")]
@@ -40,7 +45,7 @@ public class Character : Entity
             CameraShake.Instance.Shake();
             if (hpInt < 2)
             {
-                Debug.Log(SceneManager.sceneCount);
+                Debug.Log(SceneManager.loadedSceneCount);
                 hpInt++;
                 Destroy(hp[hp.Count - hpInt]);
             }

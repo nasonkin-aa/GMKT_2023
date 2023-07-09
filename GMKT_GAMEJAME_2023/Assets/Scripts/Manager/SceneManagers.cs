@@ -16,7 +16,6 @@ public static class SceneManagers
     
     public static void Restart()
     {
-        Debug.Log(SceneManager.sceneCount);
-        SceneManager.LoadScene(SceneManager.sceneCount);
+        SceneLoad(SceneManager.GetActiveScene().name);
     }
 }
