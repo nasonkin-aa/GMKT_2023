@@ -10,6 +10,7 @@ public class LeaveZone : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("asd");
         if (other.gameObject.GetComponent<Character>() == null)
             return;
         OnPlayerEnter.Invoke();
