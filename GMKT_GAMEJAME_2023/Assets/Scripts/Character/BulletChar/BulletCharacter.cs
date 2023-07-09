@@ -7,7 +7,9 @@ public class BulletCharacter : Bullet
         Bullet enemyProjectile = other.gameObject.GetComponent<Bullet>();
         if (enemyProjectile == null)
             return;
-
+        SoundManager.PlaySound(SoundManager.Sound.BulletTouch);
         enemyProjectile.GetEffect(gameObject);
     }
 }
+
+

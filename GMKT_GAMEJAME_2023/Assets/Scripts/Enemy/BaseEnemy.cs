@@ -110,10 +110,12 @@ public class BaseEnemy : Entity
    
     private void OnTriggerEnter2D(Collider2D other)
     {
+        
         if (other.gameObject.GetComponent<BulletCharacter>() 
             && TypeMatching.IsKilled(other.gameObject.GetComponent<BulletCharacter>().type,
                 _type))
         {
+            SoundManager.PlaySound(SoundManager.Sound.EnemyDestroy);
             Destroy(gameObject);
         }
       

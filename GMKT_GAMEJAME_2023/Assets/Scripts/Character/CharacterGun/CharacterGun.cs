@@ -28,6 +28,7 @@ public class CharacterGun : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
         {
             Shoot();
+            SoundManager.PlaySound(SoundManager.Sound.PlayerAttack);
         }
         Vector3 mousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
         mousePosition.z = transform.position.z;
