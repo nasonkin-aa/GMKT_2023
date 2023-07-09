@@ -40,12 +40,10 @@ public class Character : Entity
         Vector3 cursorScreenPos = Input.mousePosition;
 
         Vector3 cursorWorldPos = mainCamera.ScreenToWorldPoint(cursorScreenPos);
-        cursorWorldPos.y = transform.position.y; 
-
+        cursorWorldPos.y = transform.position.y;
         Vector3 direction = cursorWorldPos - transform.position;
 
-        transform.GetComponent<SpriteRenderer>().flipX = (direction.x >= 0f) ? transform.GetComponent<SpriteRenderer>().flipX = true
-            : transform.GetComponent<SpriteRenderer>().flipX = false;
+        transform.GetComponent<SpriteRenderer>().flipX = direction.x >= 0f;
 
     }
 }

@@ -23,7 +23,6 @@ public class CameraShake : MonoBehaviour
 
     public void Shake(float intensity = 2f, float time = 0.4f)
     {
-        
         _cameraModule.m_AmplitudeGain = intensity;
         _startingIntensity = intensity;
         _shakeTimerTotal = time;

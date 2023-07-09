@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 2850474905993339473}
   - component: {fileID: 6702523015086454946}
   - component: {fileID: -6860571782483893822}
-  - component: {fileID: -2438522885177865522}
   m_Layer: 6
   m_Name: BulletChar
   m_TagString: Untagged
@@ -30,11 +29,11 @@ Transform:
   m_GameObject: {fileID: 379320269282404950}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.1221, y: -1.5579, z: 0}
-  m_LocalScale: {x: 0.3441, y: 0.3441, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5927143097209491941
 SpriteRenderer:
@@ -56,7 +55,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a183de17050437b40bc8b31ce1ca2d21, type: 2}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -77,9 +76,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 246
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3a3808677aacbc446a24b488b894ee07, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
@@ -167,19 +166,12 @@ MonoBehaviour:
     m_Bits: 64
   type: 0
   BulletMaterial:
-  - {fileID: 2100000, guid: a183de17050437b40bc8b31ce1ca2d21, type: 2}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   - {fileID: 2100000, guid: 525ccb318caa0fc429b34167563efd63, type: 2}
   - {fileID: 2100000, guid: 6d896c9871f4c50428cc9d92cff1017d, type: 2}
   - {fileID: 2100000, guid: b7f9103c344694b419fe77acda582e65, type: 2}
---- !u!114 &-2438522885177865522
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 379320269282404950}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c738c9c3b26fb747894ebd11c8c8b93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  BulletSpriteRenderers:
+  - {fileID: 21300000, guid: 3a3808677aacbc446a24b488b894ee07, type: 3}
+  - {fileID: 416048797, guid: c832e5bcbfbb8a14999eda5b359674a8, type: 3}
+  - {fileID: -1059462791, guid: c832e5bcbfbb8a14999eda5b359674a8, type: 3}
+  - {fileID: 1985216993, guid: c832e5bcbfbb8a14999eda5b359674a8, type: 3}

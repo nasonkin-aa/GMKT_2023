@@ -36,13 +36,33 @@ public class CharacterGun : MonoBehaviour
         direction = mousePosition - transform.position;
 
         Quaternion rotation = Quaternion.FromToRotation(Vector3.right, direction);
-
+        var fLocalPosition = gameObject.transform.GetChild(0).localPosition;
+        if (gameObject.transform.parent.GetComponent<SpriteRenderer>().flipX)
+        {
+            gameObject.GetComponent<SpriteRenderer>().flipY = false;
+            if (fLocalPosition.y < 0)
+            {
+                fLocalPosition.y = -fLocalPosition.y;
+            }
+            gameObject.transform.GetChild(0).localPosition = fLocalPosition;
+        }
+        else
+        {
+            gameObject.GetComponent<SpriteRenderer>().flipY = true;
+            if (fLocalPosition.y > 0)
+            {
+                fLocalPosition.y = -fLocalPosition.y;
+            }
+            gameObject.transform.GetChild(0).localPosition = fLocalPosition;
+        }
+        
         transform.rotation = rotation;
+        
 
     }
     void Shoot()
     {
-        GameObject spawnedObject = Instantiate(_bulletPrefab, firePoint.position, Quaternion.identity);
+        GameObject spawnedObject = Instantiate(_bulletPrefab, firePoint.position, Quaternion.FromToRotation(Vector3.right, direction));
         spawnedObject.GetComponent<Bullet>().type = _type;
         spawnedObject.GetComponent<Rigidbody2D>().velocity = direction.normalized * 5;
         spawnedObject.layer = LayerMask.NameToLayer("CharacterBullet");
