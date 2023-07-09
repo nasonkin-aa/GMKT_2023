@@ -133,6 +133,7 @@ public class BaseEnemy : Entity
             && TypeMatching.IsKilled(other.gameObject.GetComponent<BulletCharacter>().type,
                 _type))
         {
+            Debug.Log("die");
             Die();
         }      
     }

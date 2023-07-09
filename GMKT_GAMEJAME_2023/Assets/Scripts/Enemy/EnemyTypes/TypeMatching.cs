@@ -16,10 +16,11 @@ public static class TypeMatching
                 }
                 break;
             case EffectTypes.Fire:
-                if (enemTypes == EffectTypes.Water)
+                if (enemTypes == EffectTypes.Water || enemTypes == EffectTypes.Ice)
                 {
                     return true;
                 }
+                
                 break;
             case EffectTypes.Water:
                 if (enemTypes == EffectTypes.Fire)
@@ -27,6 +28,13 @@ public static class TypeMatching
                     return true;
                 }
                 break;
+            case EffectTypes.Ice:
+                if(enemTypes == EffectTypes.Water)
+                {
+                    return true;
+                }
+                break;
+            
             default:
                 return false;
             break;
