@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using EffectType;
 
@@ -34,6 +32,17 @@ public class Bullet : MonoBehaviour
                 break;
         }
     }
-   
-    
+
+    public virtual void GetEffect (GameObject playerProjectile)
+    {
+        BulletCharacter bulletCharacter = playerProjectile.GetComponent<BulletCharacter>();
+        if (bulletCharacter == null)
+            return;
+
+        if (EffectTypes.None == bulletCharacter.type)
+        {
+            bulletCharacter.type = type;
+            playerProjectile.GetComponent<Renderer>().material.color = _renderer.material.color;
+        }
+    } 
 }
