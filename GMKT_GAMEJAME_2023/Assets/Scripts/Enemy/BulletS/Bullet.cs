@@ -44,6 +44,7 @@ public class Bullet : MonoBehaviour
             bulletCharacter.type = type;
 
             playerProjectile.GetComponent<Renderer>().material.color = _renderer.material.color;
+            playerProjectile.GetComponent<ColorLight>().ChangeColor();
         }
     } 
 }
