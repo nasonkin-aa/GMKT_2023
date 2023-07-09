@@ -13,6 +13,7 @@ public class BaseEnemy : Entity
     public float angleBetweenShots;
     public int numberOfShots;
     public int bulletSpeed = 5;
+    public GameObject bulletSpawnPoint;
 
 
     private Character _character = Character.Instance;
@@ -74,7 +75,7 @@ public class BaseEnemy : Entity
         float x = Mathf.Cos(angleRadians);
         float y = Mathf.Sin(angleRadians);
 
-        _shooter?.Fire(transform.position, new Vector2(x, y).normalized);
+        _shooter?.Fire(bulletSpawnPoint.transform.position, new Vector2(x, y).normalized);
     }
 
     private void Rotate()
